@@ -15,14 +15,21 @@ public class SelectionSort {
 		
 		for(int i = 0; i < arr.length; i++){
 			
+			int minValue = arr[i];
+			int minIndex = i;
+			int temp;
+			
 			for(int j = i + 1; j < arr.length; j++){
-				if(arr[i] > arr[j]){
-					int temp = arr[j];
-					arr[j] = arr[i];
-					arr[i] = temp;
+
+				if(minValue > arr[j]){
+					minValue = arr[j];
+					minIndex = j;
 				}
-				
 			}
+			
+			temp = arr[i];
+			arr[i] = minValue;
+			arr[minIndex] = temp;
 		}
 		
 		System.out.println(Arrays.toString(arr));
