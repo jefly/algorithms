@@ -13,20 +13,30 @@ public class InsertionSort {
 
 
 	private static void sort(int[] arr) {
-		int n = arr.length;
 		
-		for(int i = 0; i < n; i++){
-			for (int j = i + 1; j < n; j++) {
-				int k = j;
-				if(arr[k - 1] > arr[k]){
-					
-					int temp = arr[j];
-					arr[j] = arr[j - 1];
-					arr[j - 1] = temp;
-					--k;
+		for(int i = 0; i < arr.length; i++){
+			
+			int index = i;
+			int key = arr[i];
+			int temp;
+			
+			if(i == 0){
+				continue;
+			}
+			
+			while(index > 0 && key < arr[index - 1]){
+				
+				if(arr[index - 1] > key){
+					temp = arr[index - 1];
+					arr[index] = temp;
+					arr[index - 1] = key;
 				}
+				
+				--index;
 			}
 		}
 		
 		System.out.println(Arrays.toString(arr));
-	}}
+	}
+
+}
